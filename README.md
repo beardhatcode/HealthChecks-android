@@ -5,9 +5,9 @@ The goal is to also send a notification when HealthChecks is down.
 
 - [x] Make API calls
 - [x] Show a list
-- [ ] Support multiple api keys
+- [x] Support multiple api keys
   - [x] Store multiple API keys
-  - [ ] Make a tab per API key
+  - [x] Make a tab per API key
 - [ ] Create a service
 - [ ] Setup notifications
 - [ ] Figure out what LICENCE I should use here

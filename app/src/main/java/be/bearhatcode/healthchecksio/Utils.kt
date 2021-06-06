@@ -2,6 +2,9 @@ package be.bearhatcode.healthchecksio
 
 import java.time.Duration
 
+const val ARG_API_KEY = "API_KEY"
+
+
 fun fmtDuration(seconds: Long): String {
     var duration = Duration.ofSeconds(seconds)
     return buildString {

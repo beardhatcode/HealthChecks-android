@@ -1,7 +1,7 @@
 package be.bearhatcode.healthchecksio
 
 import android.content.Context
-import androidx.preference.PreferenceManager
+import android.util.Log
 import androidx.work.Worker
 import androidx.work.WorkerParameters
 import androidx.work.workDataOf
@@ -12,11 +12,9 @@ import java.util.concurrent.TimeoutException
 class FetchWorker(private val context: Context, workerParams: WorkerParameters) :
     Worker(context, workerParams) {
     override fun doWork(): Result {
-        val sharedPreferences =
-            PreferenceManager.getDefaultSharedPreferences(context)
-        val apiKeys = parseAPIKeys(sharedPreferences.getString("apiKeys", ""))
-        if (apiKeys.isNotEmpty()) {
-            val key = apiKeys[0]
+        val key = inputData.getString(ARG_API_KEY)
+        Log.i("WORKER", "Got key $key")
+        if (key != null) {
             val future = HealthChecksRequest(context, "/checks/", key)
 
             return try {
@@ -35,7 +33,7 @@ class FetchWorker(private val context: Context, workerParams: WorkerParameters) 
                 Result.failure()
             }
         } else {
-            return Result.success(workDataOf("result" to "{}"))
+            return Result.failure()
         }
     }
 
