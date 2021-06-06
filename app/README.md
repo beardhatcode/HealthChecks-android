@@ -1,1 +1,0 @@
-# Healtchecks.io Android
