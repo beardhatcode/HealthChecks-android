@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <EditTextPreference
+        android:dialogMessage="One Read-only API key per line"
+        android:dialogTitle="Manage API keys"
+        android:key="apiKeys"
+        android:selectAllOnFocus="false"
+        android:singleLine="false"
+        android:title="API Keys" />
+
+    <PreferenceCategory android:title="Notifications">
+        <SwitchPreferenceCompat
+            app:key="notifications"
+            app:title="Enable message notifications" />
+
+
+        <SwitchPreferenceCompat
+            app:key="notifyUnreachable"
+            app:title="Enable meta notifications" />
+    </PreferenceCategory>
+
+
+    <Preference
+        app:key="feedback"
+        app:summary="Report technical issues or suggest new features"
+        app:title="Send feedback" />
+
+</PreferenceScreen>
