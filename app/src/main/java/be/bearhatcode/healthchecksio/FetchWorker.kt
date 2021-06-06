@@ -23,14 +23,14 @@ class FetchWorker(private val context: Context, workerParams: WorkerParameters) 
             } catch (e: InterruptedException) {
                 e.printStackTrace()
                 // exception handling
-                Result.failure()
+                Result.retry()
             } catch (e: ExecutionException) {
                 e.printStackTrace()
-                Result.failure()
+                Result.retry()
                 // exception handling
             } catch (e: TimeoutException) {
                 e.printStackTrace()
-                Result.failure()
+                Result.retry()
             }
         } else {
             return Result.failure()
